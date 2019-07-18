@@ -1,0 +1,50 @@
+.main{
+    height: 100vh;
+    background-color: #E8E8E8;
+  }
+  
+  .example-card {
+    width:800px;
+    max-width: 100%;
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .mat-form-field{
+    width: 100%;
+    /*width: 300px;*/
+    /*max-width:100%;*/
+  
+  }
+  .mat-raised-button{
+    width: 270px;
+    max-width:100%;
+  }
+  .emailinput{
+    width: 300px;
+    max-width:100%;
+  }
+  .emailinputone{
+    width: 610px;
+    max-width:100%;
+  }
+  
+  .mat-flat-button{
+    min-width: 1%;
+    font-size: 11px;
+    margin-top: 5px;
+    padding: 5px;
+  }
+  
+  .login{
+    padding-top: 5px;
+  }
+  
+  #link{
+  
+  }
+  a:link {
+    text-decoration: none;
+  }
+  

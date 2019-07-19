@@ -26,6 +26,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
+import {httpInterceptorProviders} from '@/core/interceptors';
 
 
 
@@ -75,7 +76,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ForgotPasswordComponent
   ],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, disableClose: true, } }
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, disableClose: true, } },
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

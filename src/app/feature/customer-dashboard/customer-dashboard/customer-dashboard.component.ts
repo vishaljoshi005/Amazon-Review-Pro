@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RazorPaymentRequestService} from '@/core/services/miscellaneous-Auth/razor-payment-request.service';
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private razorService: RazorPaymentRequestService) { }
 
   ngOnInit() {
   }
 
+  clicked() {
+    this.razorService.requestRazorOrderId().subscribe(
+      (data) => {
+        console.log('from the component');
+        console.log(data);
+      }
+    );
+  }
 }

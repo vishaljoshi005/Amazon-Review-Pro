@@ -18,6 +18,7 @@ export class AuthService {
 
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  public authenticated = false;
 
   private BASE_URL = Env.BASE_URL; // change this later
   private LOGIN_URL = `${this.BASE_URL}/login`;
@@ -31,7 +32,11 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(logindata: LoginModel): Observable<any> {
+  public isAuthenticated(): boolean {
+      return this.authenticated;
+  }
+
+   login(logindata: LoginModel): Observable<any> {
     console.log(logindata);
     return this.http.post<any>(this.LOGIN_URL, logindata, )
       .pipe(map(user => {
@@ -42,8 +47,10 @@ export class AuthService {
 
         // add check here
          if (user.success) {
-           localStorage.setItem('currentUser', JSON.stringify({username: user.username, token: user.token}));
-           this.currentUserSubject.next({loginusername: user.username, idconf: user.token});
+           this.authenticated = true;
+           console.log(this.isAuthenticated());
+           localStorage.setItem('currentUser', JSON.stringify({loginUsername: user.username, idConf: user.token}));
+           this.currentUserSubject.next({loginUsername: user.username, idConf: user.token});
            console.log(localStorage.getItem('currentUser'));
            return { success : true, message : 'Authentication Successful'};
          } else {

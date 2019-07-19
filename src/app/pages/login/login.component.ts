@@ -62,10 +62,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']); // Change this URL
         } else {
           this.openSnackBar();
+
           this.resetForm(this.loginForm);
         }
-      }, ( err ) => {
-
       });
 
     } else {

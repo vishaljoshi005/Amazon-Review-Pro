@@ -1,5 +1,5 @@
 export class User {
-    loginusername: string;
-    idconf?: string;
+    loginUsername: string;
+    idConf?: string;
   }
-  
+
